@@ -7,8 +7,9 @@ ___
 * [flask-moment](#flask-moment)
 * [flask-script](#flask-script)
 * [flask-sqlalchemy](#flask-sqlalchemy)
+* [flask-whooshalchemy](#flask-whooshalchemy)
 * [flask-wtf](#flask-wtf)
-___
+
 
 ## Flask Bootstrap
 ___
@@ -42,8 +43,7 @@ ___
         <h1>Hello, Maxim!</h1>
     </div>
     {% endblock %}
-___
-___
+
 
 ## Flask login
 ___
@@ -74,8 +74,7 @@ ___
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-___
-___
+
 
 ## Flask moment
 ___
@@ -103,8 +102,7 @@ ___
 > use it
     
     {{ moment(talk.date, local=True).format('LL') }}
-___
-___
+
 
 ## Flask script
 ___
@@ -128,8 +126,8 @@ ___
 > shell
 
     (venv) python manage.py runserver
-___
-___
+
+
 ## Flask-SQLAlchemy
 ___
 > shell
@@ -139,8 +137,37 @@ ___
 > manage.py or not
     
     app.config['SQLALCHEMY_DATABASE_URI'] = 'path/to/database.db'
-___
-___
+
+
+## Flask-Whooshalchemy
+
+> shell
+    
+    (venv) $ pip install flask-whooshalchemy==0.8 (not 0.56)
+    
+> manage.py
+
+    import flask_whooshalchemy
+    
+    # set the location for the whoosh index
+    app.config['WHOOSH_BASE'] = '/path/to/whoosh'
+    app.config[SQLALCHEMY_TRACK_MODIFICATIONS] = True
+    
+    class MyModel(db.Model):
+        ...
+        __searchable__ = ['field1', 'field2']
+        ...
+        field1 = db.Column(db.String(...), ...)
+        field2 = db.Column(db.Text())
+        field3 = db.Column(...)
+        
+    wa.whoosh_index(app, MyModel)
+
+> python console
+
+    >>> MyModel.query.whoosh_search('query string').all()
+
+
 ## Flask-WTF
 ___
 
