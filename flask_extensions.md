@@ -147,7 +147,7 @@ ___
     
 > manage.py
 
-    import flask_whooshalchemy
+    import flask_whooshalchemy as wa
     
     # set the location for the whoosh index
     app.config['WHOOSH_BASE'] = '/path/to/whoosh'
