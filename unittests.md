@@ -36,7 +36,7 @@
 ## Основні методи unittest.TestCase
 
 | unittest.TestCase method  |  description           |
-| ------------------------- | ---------------------- |
+|:-------------------------:|:----------------------:|
 | assertEqual(a, b)         |   a == b               |
 | assertNotEqual(a, b)      |   a != b               |
 | assertTrue(x)             |   bool(x) is True      |
