@@ -49,3 +49,5 @@
 | assertNotIn(a, b)         |   a not in b           |
 | assertIsInstace(a, b)     |   isinstance(a, b)     |
 | assertNotIsInstanse(a, b) |   not isinstance(a, b) |
+| ------------------------- | ---------------------- |
+| assertRaises(exc_type)    |   is Exception
